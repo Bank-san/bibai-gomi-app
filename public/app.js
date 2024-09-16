@@ -2,7 +2,7 @@
 window.OneSignal = window.OneSignal || [];
 OneSignal.push(function () {
   OneSignal.init({
-    appId: "08203396-5e64-4caa-a388-a37fcc7d4f1a", // ここに取得したApp IDを設定
+    appId: "7ea141ba-da7d-4b87-aaf1-3a655301f796", // ここに取得したApp IDを設定
   });
 });
 
