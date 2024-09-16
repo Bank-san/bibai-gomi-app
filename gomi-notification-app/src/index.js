@@ -15,7 +15,7 @@ root.render(
 window.OneSignal = window.OneSignal || [];
 OneSignal.push(function () {
   OneSignal.init({
-    appId: "YOUR_ONESIGNAL_APP_ID", // ここに取得したApp IDを設定
+    appId: "7ea141ba-da7d-4b87-aaf1-3a655301f796", // ここに取得したApp IDを設定
   });
 });
 
