@@ -1,66 +1,31 @@
+// OneSignalの初期化
+window.OneSignal = window.OneSignal || [];
+OneSignal.push(function () {
+  OneSignal.init({
+    appId: "2a8b9d4e-b48b-4e33-9f59-0baa2922d3b8",
+  });
+});
+
 // 通知許可をリクエスト
 document.getElementById("enableNotifications").addEventListener("click", () => {
-  Notification.requestPermission().then((permission) => {
-    if (permission === "granted") {
-      navigator.serviceWorker.ready.then((registration) => {
-        registration.pushManager
-          .subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array(
-              "BOe6KExlj-i9SSyliCJacV58-r1oGmCi8esW9GgoeRQFubLHV33ZPMioZtKjhyfio8Q2q0nLRbpTvKdt3DtNlXw"
-            ),
-          })
-          .then((subscription) => {
-            fetch("/subscribe", {
-              method: "POST",
-              body: JSON.stringify(subscription),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            });
-          });
-      });
-    } else {
-      alert("通知が拒否されました。");
-    }
+  OneSignal.push(function () {
+    OneSignal.showNativePrompt();
   });
 });
 
 // テスト通知を送信
 document.getElementById("testNotification").addEventListener("click", () => {
-  randomNotification();
+  OneSignal.push(function () {
+    OneSignal.sendSelfNotification(
+      "テスト通知",
+      "これはテスト通知です。",
+      "/images/icon-192x192.png",
+      {
+        notificationType: "test",
+      }
+    );
+  });
 });
-
-function urlBase64ToUint8Array(base64String) {
-  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-  for (let i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
-}
-
-// ランダム通知を送信
-const games = [
-  { name: "Game 1", author: "Author 1", slug: "game1" },
-  { name: "Game 2", author: "Author 2", slug: "game2" },
-  { name: "Game 3", author: "Author 3", slug: "game3" },
-];
-
-function randomNotification() {
-  var randomItem = Math.floor(Math.random() * games.length);
-  var notifTitle = games[randomItem].name;
-  var notifBody = "Created by " + games[randomItem].author + ".";
-  var notifImg = "data/img/" + games[randomItem].slug + ".jpg";
-  var options = {
-    body: notifBody,
-    icon: notifImg,
-  };
-  var notif = new Notification(notifTitle, options);
-  setTimeout(randomNotification, 30000);
-}
 
 let deferredPrompt;
 
