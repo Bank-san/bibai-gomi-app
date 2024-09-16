@@ -36,3 +36,13 @@ function urlBase64ToUint8Array(base64String) {
   }
   return outputArray;
 }
+
+// テスト用のボタンのクリックイベントを処理
+document.getElementById("testNotification").addEventListener("click", () => {
+  navigator.serviceWorker.ready.then((registration) => {
+    registration.showNotification("テスト通知", {
+      body: "これはテスト通知です。",
+      icon: "/images/icon-192x192.png",
+    });
+  });
+});
