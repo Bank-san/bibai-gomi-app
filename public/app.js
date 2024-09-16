@@ -1,13 +1,3 @@
-// 通知許可をリクエスト
-document.getElementById("enableNotifications").addEventListener("click", () => {
-  alert("通知機能は現在無効化されています。");
-});
-
-// テスト通知を送信
-document.getElementById("testNotification").addEventListener("click", () => {
-  alert("テスト通知機能は現在無効化されています。");
-});
-
 let deferredPrompt;
 
 window.addEventListener("beforeinstallprompt", (e) => {
