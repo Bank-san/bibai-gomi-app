@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
-class App extends React.Component {
-  componentDidMount() {
+function App() {
+  useEffect(() => {
     // 通知許可をリクエスト
     document
       .getElementById("enableNotifications")
@@ -36,11 +36,11 @@ class App extends React.Component {
       // Stash the event so it can be triggered later.
       deferredPrompt = e;
       // Update UI notify the user they can install the PWA
-      this.showInstallPromotion(deferredPrompt);
+      showInstallPromotion(deferredPrompt);
     });
-  }
+  }, []);
 
-  showInstallPromotion(deferredPrompt) {
+  const showInstallPromotion = (deferredPrompt) => {
     const installButton = document.createElement("button");
     installButton.textContent = "ホーム画面に追加";
     installButton.style.position = "fixed";
@@ -70,58 +70,56 @@ class App extends React.Component {
         document.body.removeChild(installButton);
       });
     });
-  }
+  };
 
-  render() {
-    return (
-      <div className="App">
-        <header>
-          <h1>ゴミ収集通知アプリ</h1>
-        </header>
-        <main>
-          <section id="calendar">
-            <h2>ゴミ収集カレンダー</h2>
-            <p>お住まいの地域に応じて収集日を確認できます。</p>
-            <table className="calendar-table">
-              <thead>
-                <tr>
-                  <th>日</th>
-                  <th>月</th>
-                  <th>火</th>
-                  <th>水</th>
-                  <th>木</th>
-                  <th>金</th>
-                  <th>土</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td className="burnable">燃やせるゴミ</td>
-                  <td></td>
-                  <td className="recyclable">リサイクル</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-          <section id="notification">
-            <h2>通知設定</h2>
-            <p>
-              ゴミ収集日の前日に通知を受け取るには、以下のボタンを押してください。
-            </p>
-            <button id="enableNotifications">通知を有効にする</button>
-            <button id="testNotification">テスト通知を送信</button>
-          </section>
-        </main>
-        <footer>
-          <p>&copy; 2024 ゴミ収集通知アプリ</p>
-        </footer>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header>
+        <h1>ゴミ収集通知アプリ</h1>
+      </header>
+      <main>
+        <section id="calendar">
+          <h2>ゴミ収集カレンダー</h2>
+          <p>お住まいの地域に応じて収集日を確認できます。</p>
+          <table className="calendar-table">
+            <thead>
+              <tr>
+                <th>日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td className="burnable">燃やせるゴミ</td>
+                <td></td>
+                <td className="recyclable">リサイクル</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="notification">
+          <h2>通知設定</h2>
+          <p>
+            ゴミ収集日の前日に通知を受け取るには、以下のボタンを押してください。
+          </p>
+          <button id="enableNotifications">通知を有効にする</button>
+          <button id="testNotification">テスト通知を送信</button>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2024 ゴミ収集通知アプリ</p>
+      </footer>
+    </div>
+  );
 }
 
 export default App;
