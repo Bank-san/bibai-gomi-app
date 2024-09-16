@@ -1,0 +1,7 @@
+[build]
+  publish = "public"
+  command = "" # 必要なビルドコマンドがあればここに記載
+
+# 必要に応じて、Netlify Functionsの設定も追加できます
+# [functions]
+#   directory = "netlify/functions"
