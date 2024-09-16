@@ -8,9 +8,9 @@ app.use(bodyParser.json());
 const publicVapidKey =
   "BOe6KExlj-i9SSyliCJacV58-r1oGmCi8esW9GgoeRQFubLHV33ZPMioZtKjhyfio8Q2q0nLRbpTvKdt3DtNlXw";
 const privateVapidKey = "6hDFzy_PJYSijWTUqbb54tHylpymQX778Ub55Qf7n5Q";
-
+//変更しました
 webpush.setVapidDetails(
-  "mailto:example@yourdomain.org",
+  "mailto:taichi.a@itnav.co.jp",
   publicVapidKey,
   privateVapidKey
 );
