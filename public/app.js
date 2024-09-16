@@ -1,3 +1,32 @@
+// OneSignalの初期化
+window.OneSignal = window.OneSignal || [];
+OneSignal.push(function () {
+  OneSignal.init({
+    appId: "08203396-5e64-4caa-a388-a37fcc7d4f1a", // ここに取得したApp IDを設定
+  });
+});
+
+// 通知許可をリクエスト
+document.getElementById("enableNotifications").addEventListener("click", () => {
+  OneSignal.push(function () {
+    OneSignal.showNativePrompt();
+  });
+});
+
+// テスト通知を送信
+document.getElementById("testNotification").addEventListener("click", () => {
+  OneSignal.push(function () {
+    OneSignal.sendSelfNotification(
+      "テスト通知",
+      "これはテスト通知です。",
+      "/icons/192.png",
+      {
+        notificationType: "test",
+      }
+    );
+  });
+});
+
 let deferredPrompt;
 
 window.addEventListener("beforeinstallprompt", (e) => {
