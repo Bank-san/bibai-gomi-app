@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ゴミ収集通知アプリ" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>ゴミ収集通知アプリ</title>
+    <link rel="manifest" href="manifest.json" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/service-worker.js").then(
+            function (registration) {
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            },
+            function (err) {
+              console.log("ServiceWorker registration failed: ", err);
+            }
+          );
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>ゴミ収集通知アプリ</h1>
+    </header>
+
+    <main>
+      <section id="calendar">
+        <h2>ゴミ収集カレンダー</h2>
+        <p>お住まいの地域に応じて収集日を確認できます。</p>
+
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th>日</th>
+              <th>月</th>
+              <th>火</th>
+              <th>水</th>
+              <th>木</th>
+              <th>金</th>
+              <th>土</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- カレンダーの例として1週間分 -->
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="burnable">燃やせるゴミ</td>
+              <td></td>
+              <td class="recyclable">リサイクル</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <!-- 必要に応じて行を追加 -->
+          </tbody>
+        </table>
+      </section>
+
+      <section id="notification">
+        <h2>通知設定</h2>
+        <p>
+          ゴミ収集日の前日に通知を受け取るには、以下のボタンを押してください。
+        </p>
+        <button id="enableNotifications">通知を有効にする</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 ゴミ収集通知アプリ</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
