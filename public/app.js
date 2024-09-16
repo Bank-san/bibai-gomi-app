@@ -31,7 +31,7 @@ document.getElementById("testNotification").addEventListener("click", () => {
   navigator.serviceWorker.ready.then((registration) => {
     registration.showNotification("テスト通知", {
       body: "これはテスト通知です。",
-      icon: "/images/icon-192x192.png",
+      icon: "/icons/192.png",
     });
   });
 });
@@ -52,7 +52,7 @@ document.getElementById("testNotification").addEventListener("click", () => {
   navigator.serviceWorker.ready.then((registration) => {
     registration.showNotification("テスト通知", {
       body: "これはテスト通知です。",
-      icon: "/images/icon-192x192.png",
+      icon: "/icons/192.png",
     });
   });
 });
