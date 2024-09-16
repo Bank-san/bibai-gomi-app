@@ -67,3 +67,19 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Cache
+.cache/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
