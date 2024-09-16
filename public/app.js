@@ -1,8 +1,8 @@
 // OneSignalの初期化
-window.OneSignalDeferred = window.OneSignalDeferred || [];
-OneSignalDeferred.push(async function (OneSignal) {
-  await OneSignal.init({
-    appId: "08203396-5e64-4caa-a388-a37fcc7d4f1a",
+window.OneSignal = window.OneSignal || [];
+OneSignal.push(function () {
+  OneSignal.init({
+    appId: "08203396-5e64-4caa-a388-a37fcc7d4f1a", // ここに正しいApp IDを設定
   });
 });
 
