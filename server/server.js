@@ -6,8 +6,8 @@ const app = express();
 app.use(bodyParser.json());
 
 const publicVapidKey =
-  "BEkVHEB82B5bp48U8f512znlLHJBQthWkC9T7RwrBCBX9J3FDDuqF6_O3USFtnDlcUpS5zHJg5BPtukxON5p2a8";
-const privateVapidKey = "nzPiEhyiWwmCPp04H9rl5gBDQZ7wU3ysjHxTRR7Rh2Y";
+  "BOe6KExlj-i9SSyliCJacV58-r1oGmCi8esW9GgoeRQFubLHV33ZPMioZtKjhyfio8Q2q0nLRbpTvKdt3DtNlXw";
+const privateVapidKey = "6hDFzy_PJYSijWTUqbb54tHylpymQX778Ub55Qf7n5Q";
 
 webpush.setVapidDetails(
   "mailto:example@yourdomain.org",

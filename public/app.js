@@ -7,7 +7,7 @@ document.getElementById("enableNotifications").addEventListener("click", () => {
           .subscribe({
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUint8Array(
-              "YOUR_PUBLIC_VAPID_KEY"
+              "BOe6KExlj-i9SSyliCJacV58-r1oGmCi8esW9GgoeRQFubLHV33ZPMioZtKjhyfio8Q2q0nLRbpTvKdt3DtNlXw"
             ),
           })
           .then((subscription) => {
