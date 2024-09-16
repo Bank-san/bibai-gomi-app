@@ -1,30 +1,11 @@
-// OneSignalの初期化
-window.OneSignal = window.OneSignal || [];
-OneSignal.push(function () {
-  OneSignal.init({
-    appId: "08203396-5e64-4caa-a388-a37fcc7d4f1a", // ここに正しいApp IDを設定
-  });
-});
-
 // 通知許可をリクエスト
 document.getElementById("enableNotifications").addEventListener("click", () => {
-  OneSignal.push(function () {
-    OneSignal.showNativePrompt();
-  });
+  alert("通知機能は現在無効化されています。");
 });
 
 // テスト通知を送信
 document.getElementById("testNotification").addEventListener("click", () => {
-  OneSignal.push(function () {
-    OneSignal.sendSelfNotification(
-      "テスト通知",
-      "これはテスト通知です。",
-      "/images/icon-192x192.png",
-      {
-        notificationType: "test",
-      }
-    );
-  });
+  alert("テスト通知機能は現在無効化されています。");
 });
 
 let deferredPrompt;
