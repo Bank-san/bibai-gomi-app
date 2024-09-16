@@ -10,8 +10,7 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-importScripts("https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js");
+importScripts("https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js");
 
 const firebaseConfig = {
   apiKey: "AIzaSyD-P6rwb41ngLYyJfxm48FCtoGLBhkfD0I",
