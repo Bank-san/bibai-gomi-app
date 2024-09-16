@@ -28,12 +28,7 @@ document.getElementById("enableNotifications").addEventListener("click", () => {
 
 // テスト通知を送信
 document.getElementById("testNotification").addEventListener("click", () => {
-  navigator.serviceWorker.ready.then((registration) => {
-    registration.showNotification("テスト通知", {
-      body: "これはテスト通知です。",
-      icon: "/icons/192.png",
-    });
-  });
+  randomNotification();
 });
 
 function urlBase64ToUint8Array(base64String) {
@@ -47,15 +42,25 @@ function urlBase64ToUint8Array(base64String) {
   return outputArray;
 }
 
-// テスト用のボタンのクリックイベントを処理
-document.getElementById("testNotification").addEventListener("click", () => {
-  navigator.serviceWorker.ready.then((registration) => {
-    registration.showNotification("テスト通知", {
-      body: "これはテスト通知です。",
-      icon: "/icons/192.png",
-    });
-  });
-});
+// ランダム通知を送信
+const games = [
+  { name: "Game 1", author: "Author 1", slug: "game1" },
+  { name: "Game 2", author: "Author 2", slug: "game2" },
+  { name: "Game 3", author: "Author 3", slug: "game3" },
+];
+
+function randomNotification() {
+  var randomItem = Math.floor(Math.random() * games.length);
+  var notifTitle = games[randomItem].name;
+  var notifBody = "Created by " + games[randomItem].author + ".";
+  var notifImg = "data/img/" + games[randomItem].slug + ".jpg";
+  var options = {
+    body: notifBody,
+    icon: notifImg,
+  };
+  var notif = new Notification(notifTitle, options);
+  setTimeout(randomNotification, 30000);
+}
 
 let deferredPrompt;
 
